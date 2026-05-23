@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зелёнка — Кофейня в Калининграде</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-dark: #2D5A3D;
+            --green-main: #4A7C59;
+            --green-light: #6B9F78;
+            --green-pale: #E8F5E9;
+            --cream: #FFF8F0;
+            --warm-white: #FFFDF9;
+            --text-dark: #1A1A1A;
+            --text-medium: #4A4A4A;
+            --text-light: #7A7A7A;
+            --accent: #C4956A;
+            --accent-light: #E8D5C0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-main) 50%, var(--green-light) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-logo-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-logo-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .hero-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .hero-nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-nav-links a:hover {
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 0 40px 60px;
+            gap: 60px;
+        }
+
+        .hero-left {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 28px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #7DFFB8;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 480px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--green-dark);
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            flex: 1;
+            max-width: 500px;
+            animation: fadeInRight 1s ease 0.4s both;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            color: white;
+        }
+
+        .hero-image-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .hero-float-card {
+            position: absolute;
+            bottom: -20px;
+            left: -30px;
+            background: white;
+            border-radius: 16px;
+            padding: 18px 24px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hero-float-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--green-pale);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .hero-float-text strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .hero-float-text span {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background: white;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 0 40px;
+        }
+
+        .info-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .info-item {
+            padding: 32px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            border-right: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--green-pale);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--green-main);
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .info-value a {
+            color: var(--green-main);
+            text-decoration: none;
+        }
+
+        .info-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--green-pale);
+            color: var(--green-main);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(0,0,0,0.4));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-card:hover .gallery-card-overlay {
+            opacity: 1;
+        }
+
+        /* Promo Section */
+        .promo-section {
+            padding: 80px 40px;
+            background: var(--green-pale);
+        }
+
+        .promo-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .promo-content {
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .promo-new-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .promo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 38px);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .promo-text {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .promo-targets {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .promo-targets li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text-medium);
+            background: white;
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .promo-targets li:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .promo-targets li .emoji {
+            font-size: 20px;
+        }
+
+        .promo-image-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .promo-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .promo-image-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: white;
+            border-radius: 14px;
+            padding: 14px 20px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .promo-image-badge .big-emoji {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .promo-image-badge span {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--green-main);
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .schedule-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .schedule-header {
+            background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .schedule-header-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .schedule-header-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+        }
+
+        .schedule-header h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .schedule-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        .schedule-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        .schedule-status-dot {
+            width: 10px;
+            height: 10px;
+            background: #7DFFB8;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .schedule-status span {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .schedule-body {
+            padding: 8px;
+        }
+
+        .schedule-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 32px;
+            border-radius: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .schedule-row:hover {
+            background: var(--green-pale);
+        }
+
+        .schedule-row.today {
+            background: var(--green-pale);
+        }
+
+        .schedule-row.today .schedule-day {
+            color: var(--green-main);
+            font-weight: 700;
+        }
+
+        .schedule-day {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+            min-width: 140px;
+        }
+
+        .schedule-time {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+
+        .schedule-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.05);
+            margin: 0 32px;
+        }
+
+        /* Contact / Map Section */
+        .contact-section {
+            padding: 80px 40px;
+            background: var(--cream);
+        }
+
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .contact-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-detail-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--green-pale);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-detail-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--green-main);
+        }
+
+        .contact-detail-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-detail-value {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-detail-value a {
+            color: var(--green-main);
+            text-decoration: none;
+        }
+
+        .contact-detail-value a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-map {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            min-height: 400px;
+            background: #e0e0e0;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 400px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--green-dark);
+            color: white;
+            padding: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 12px;
+            object-fit: contain;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile hamburger */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            .hero-left {
+                max-width: 100%;
+            }
+
+            .hero-subtitle {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-right {
+                max-width: 400px;
+            }
+
+            .hero-float-card {
+                left: 10px;
+                bottom: -10px;
+            }
+
+            .info-bar-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .promo-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-image-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .contact-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-nav {
+                padding: 16px 20px;
+            }
+
+            .hero-nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--green-dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero-nav-links.open {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                padding: 20px 20px 60px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .info-bar-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .info-item:last-child {
+                border-bottom: none;
+            }
+
+            .gallery-section,
+            .schedule-section {
+                padding: 60px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .promo-section {
+                padding: 60px 20px;
+            }
+
+            .promo-targets {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-header {
+                padding: 24px;
+                flex-wrap: wrap;
+            }
+
+            .schedule-status {
+                margin-left: 0;
+            }
+
+            .schedule-row {
+                padding: 14px 20px;
+            }
+
+            .schedule-day {
+                min-width: 100px;
+                font-size: 14px;
+            }
+
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .contact-info-card {
+                padding: 28px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <nav class="hero-nav">
+            <a href="#" class="hero-logo">
+                <div class="hero-logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+                        <line x1="6" y1="2" x2="6" y2="4"/>
+                        <line x1="10" y1="2" x2="10" y2="4"/>
+                        <line x1="14" y1="2" x2="14" y2="4"/>
+                    </svg>
+                </div>
+                <span class="hero-logo-text">Зелёнка</span>
+            </a>
+            <button class="mobile-toggle" onclick="document.querySelector('.hero-nav-links').classList.toggle('open')" aria-label="Меню">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <ul class="hero-nav-links">
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#promo">Новинка</a></li>
+                <li><a href="#schedule">График</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Открыто до 21:00
+                </div>
+                <h1 class="hero-title">Кофе с&nbsp;душой в&nbsp;самом сердце Калининграда</h1>
+                <p class="hero-subtitle">Уютная кофейня «Зелёнка» — место, где каждая чашка сварена с&nbsp;любовью, а&nbsp;атмосфера вдохновляет на&nbsp;новые открытия.</p>
+                <div class="hero-actions">
+                    <a href="tel:+79210084528" class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Позвонить
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Как добраться
+                    </a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image-wrapper">
+                    <img src="https://avatars.mds.yandex.net/get-altay/19707167/2a0000019cd22889a64926d75a18fe5ab4f1/XXXL" alt="Интерьер кофейни Зелёнка" loading="eager">
+                    <div class="hero-image-overlay">
+                        <p>ул. Профессора Баранова, 1 • Калининград</p>
+                    </div>
+                </div>
+                <div class="hero-float-card">
+                    <div class="hero-float-icon">☕</div>
+                    <div class="hero-float-text">
+                        <strong>Каждый день</strong>
+                        <span>10:00 — 21:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <div class="info-bar-inner">
+            <div class="info-item">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <div class="info-label">Адрес</div>
+                    <div class="info-value">ул. Профессора Баранова, 1<br>этаж 1, Калининград</div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                    <div class="info-label">Время работы</div>
+                    <div class="info-value">Ежедневно 10:00–21:00</div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                    <div class="info-label">Телефон</div>
+                    <div class="info-value"><a href="tel:+79210084528">+7 (921) 008-45-28</a></div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+                </div>
+                <div>
+                    <div class="info-label">Специальное предложение</div>
+                    <div class="info-value">Кофе без кофеина ☕</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <section class="gallery-section reveal" id="gallery">
+        <div class="section-header">
+            <div class="section-tag">Галерея</div>
+            <h2 class="section-title">Загляните к&nbsp;нам</h2>
+            <p class="section-desc">Атмосфера уюта и&nbsp;ароматного кофе ждёт вас каждый день</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card" onclick="openLightbox(0)">
+                <img src="https://avatars.mds.yandex.net/get-altay/19707167/2a0000019cd22889a64926d75a18fe5ab4f1/XXXL" alt="Кофейня Зелёнка — интерьер" loading="lazy">
+                <div class="gallery-card-overlay"></div>
+            </div>
+            <div class="gallery-card" onclick="openLightbox(1)">
+                <img src="https://avatars.mds.yandex.net/get-altay/17783115/2a0000019cd22b16642f0f05bd39e1693f21/XXXL" alt="Кофейня Зелёнка — напитки" loading="lazy">
+                <div class="gallery-card-overlay"></div>
+            </div>
+            <div class="gallery-card" onclick="openLightbox(2)">
+                <img src="https://avatars.mds.yandex.net/get-altay/18708590/2a0000019cd22a94282f9ac95726ed6231f1/XXXL" alt="Кофейня Зелёнка — атмосфера" loading="lazy">
+                <div class="gallery-card-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo -->
+    <section class="promo-section reveal" id="promo">
+        <div class="promo-inner">
+            <div class="promo-content">
+                <div class="promo-new-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Новинка
+                </div>
+                <h2 class="promo-title">Кофе без кофеина — теперь в&nbsp;нашем меню!</h2>
+                <p class="promo-text">
+                    Охота вечером выпить чашечку ароматного латте, но&nbsp;не&nbsp;хочется потом считать овец до&nbsp;утра? Теперь это возможно! 🤗 Наш декаф такой&nbsp;же насыщенный и&nbsp;вкусный, ведь мы&nbsp;используем качественные зёрна. Идеально для вечерних посиделок, для тех, кто следит за&nbsp;давлением или просто хочет насладиться чистым вкусом без лишней бодрости.
+                </p>
+                <ul class="promo-targets">
+                    <li><span class="emoji">💚</span> Беременным и кормящим</li>
+                    <li><span class="emoji">💚</span> Чувствительным к кофеину</li>
+                    <li><span class="emoji">💚</span> Ценителям вкуса без «побочек»</li>
+                    <li><span class="emoji">💚</span> Всем, кто пьёт кофе после 18:00</li>
+                </ul>
+            </div>
+            <div class="promo-image-card">
+                <img src="https://avatars.mds.yandex.net/get-altay/17783115/2a0000019cd22b16642f0f05bd39e1693f21/XXXL" alt="Кофе без кофеина в Зелёнке" loading="lazy">
+                <div class="promo-image-badge">
+                    <span class="big-emoji">🫶</span>
+                    <span>Без кофеина</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="schedule-section reveal" id="schedule">
+        <div class="section-header">
+            <div class="section-tag">Расписание</div>
+            <h2 class="section-title">График работы</h2>
+            <p class="section-desc">Мы работаем для вас каждый день без выходных</p>
+        </div>
+        <div class="schedule-card">
+            <div class="schedule-header">
+                <div class="schedule-header-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div>
+                    <h3>Режим работы</h3>
+                    <p>Кофейня «Зелёнка»</p>
+                </div>
+                <div class="schedule-status">
+                    <span class="schedule-status-dot"></span>
+                    <span id="statusText">Открыто</span>
+                </div>
+            </div>
+            <div class="schedule-body" id="scheduleBody">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section reveal" id="contact">
+        <div class="contact-inner">
+            <div class="contact-info-card">
+                <h3>Как нас найти</h3>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Адрес</div>
+                        <div class="contact-detail-value">ул. Профессора Баранова, 1<br>этаж 1, Калининград</div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Телефон</div>
+                        <div class="contact-detail-value"><a href="tel:+79210084528">+7 (921) 008-45-28</a></div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Часы работы</div>
+                        <div class="contact-detail-value">Ежедневно 10:00–21:00</div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-detail-label">Попробуйте</div>
+                        <div class="contact-detail-value">Новый кофе без кофеина 🫶</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.5!2d20.5105!3d54.7105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0JrQuNGC0YPQu9GM0Y3RgiDQstCw0L3RgdGC0LLQsCwgMSwg0JLQuNGC0YHQutCy0L7QstCw0L3QvdCw0Yc!5e0!3m2!1sru!2sru!4v1700000000000!5m2!1sru!2sru" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+                        <line x1="6" y1="2" x2="6" y2="4"/>
+                        <line x1="10" y1="2" x2="10" y2="4"/>
+                        <line x1="14" y1="2" x2="14" y2="4"/>
+                    </svg>
+                </div>
+                <span class="footer-logo-text">Зелёнка</span>
+            </div>
+            <div class="footer-links">
+                <a href="#gallery">Галерея</a>
+                <a href="#promo">Новинка</a>
+                <a href="#schedule">График</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <div class="footer-copy">© 2026 Зелёнка. Калининград</div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</button>
+        <img id="lightboxImg" src="" alt="Фото кофейни">
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</button>
+    </div>
+
+    <script>
+        // Gallery images
+        const galleryImages = [
+            'https://avatars.mds.yandex.net/get-altay/19707167/2a0000019cd22889a64926d75a18fe5ab4f1/XXXL',
+            'https://avatars.mds.yandex.net/get-altay/17783115/2a0000019cd22b16642f0f05bd39e1693f21/XXXL',
+            'https://avatars.mds.yandex.net/get-altay/18708590/2a0000019cd22a94282f9ac95726ed6231f1/XXXL'
+        ];
+
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            document.getElementById('lightboxImg').src = galleryImages[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightboxImg').src = galleryImages[currentLightboxIndex];
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // Schedule
+        const dayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+        const today = new Date().getDay();
+
+        function buildSchedule() {
+            const container = document.getElementById('scheduleBody');
+            // Start from Monday (1) to Sunday (7), but Russian week starts Monday
+            const order = [1, 2, 3, 4, 5, 6, 0];
+            let html = '';
+            order.forEach(function(dayNum, idx) {
+                const isToday = dayNum === today;
+                html += '<div class="schedule-row' + (isToday ? ' today' : '') + '">';
+                html += '<span class="schedule-day">' + dayNames[dayNum] + (isToday ? ' (сегодня)' : '') + '</span>';
+                html += '<span class="schedule-time">10:00–21:00</span>';
+                html += '</div>';
+                if (idx < order.length - 1) {
+                    html += '<div class="schedule-divider"></div>';
+                }
+            });
+            container.innerHTML = html;
+
+            // Update status
+            const now = new Date();
+            const hour = now.getHours();
+            const statusEl = document.getElementById('statusText');
+            if (hour >= 10 && hour < 21) {
+                statusEl.textContent = 'Открыто';
+            } else {
+                statusEl.textContent = 'Закрыто';
+                document.querySelector('.schedule-status-dot').style.background = '#FF6B6B';
+            }
+        }
+
+        buildSchedule();
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(function(el) {
+            revealObserver.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.querySelector('.hero-nav-links').classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
